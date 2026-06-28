@@ -95,51 +95,55 @@ export default function Footer({ darkMode }) {
           </div>
 
         </div>        {/* SOCIAL LINKS */}
-        <div className="flex justify-center gap-5 mt-14">
+        <div className="flex justify-center gap-8 mt-14">
 
-          <a
-            href="https://github.com/ahmed-dew123"
-            target="_blank"
-            rel="noreferrer"
-            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "white",
-            }}
-          >
-            💻
-          </a>
+  <div className="flex flex-col items-center">
+    <a
+      href="https://github.com/ahmed-dew123"
+      target="_blank"
+      rel="noreferrer"
+      className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+      style={{
+        backgroundColor: "var(--primary)",
+        color: "white",
+      }}
+    >
+      💻
+    </a>
+    <span className="mt-2 text-sm">GitHub</span>
+  </div>
 
-          <a
-            href="https://www.linkedin.com/in/ahmed-kashif-6665992b2?"
-            target="_blank"
-            rel="noreferrer"
-            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+  <div className="flex flex-col items-center">
+    <a
+      href="https://www.linkedin.com/in/ahmed-kashif-6665992b2"
+      target="_blank"
+      rel="noreferrer"
+      className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+      style={{
+        backgroundColor: "var(--primary)",
+        color: "white",
+      }}
+    >
+      💼
+    </a>
+    <span className="mt-2 text-sm">LinkedIn</span>
+  </div>
 
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "white",
+  <div className="flex flex-col items-center">
+  <a
+    href="mailto:mrahmedkashif78@gmail.com"
+    className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+    style={{
+      backgroundColor: "var(--primary)",
+      color: "white",
+    }}
+  >
+    ✉️
+  </a>
+  <span className="mt-2 text-sm">Email</span>
+</div>
 
-            }}
-
-          >
-
-            💼
-          </a>
-
-          <a
-            href="mailto:youremail@gmail.com"
-            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "white",
-            }}
-          >
-            ✉️
-          </a>
-
-        </div>
-
+</div>
         {/* COPYRIGHT */}
         <div
           className={`border-t mt-12 pt-6 text-center ${darkMode
