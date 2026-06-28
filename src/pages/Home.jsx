@@ -12,9 +12,8 @@ export default function Home({ darkMode }) {
     >
       {/* Overlay */}
       <div
-        className={`w-full min-h-screen flex items-center transition-all duration-500 ${
-          darkMode ? "bg-black/70" : "bg-white/60"
-        }`}
+        className={`w-full min-h-screen flex items-center transition-all duration-500 ${darkMode ? "bg-black/70" : "bg-white/60"
+          }`}
       >
         <div className="max-w-7xl mx-auto w-full px-6 lg:px-16">
 
@@ -31,9 +30,8 @@ export default function Home({ darkMode }) {
               </p>
 
               <h1
-                className={`text-5xl lg:text-7xl font-bold leading-tight ${
-                  darkMode ? "text-white" : "text-slate-900"
-                }`}
+                className={`text-5xl lg:text-7xl font-bold leading-tight ${darkMode ? "text-white" : "text-slate-900"
+                  }`}
               >
                 Hi, I'm
                 <br />
@@ -44,17 +42,15 @@ export default function Home({ darkMode }) {
               </h1>
 
               <h2
-                className={`text-2xl mt-6 font-medium ${
-                  darkMode ? "text-gray-300" : "text-slate-700"
-                }`}
+                className={`text-2xl mt-6 font-medium ${darkMode ? "text-gray-300" : "text-slate-700"
+                  }`}
               >
                 Frontend Developer
               </h2>
 
               <p
-                className={`mt-8 leading-8 max-w-xl ${
-                  darkMode ? "text-gray-400" : "text-slate-600"
-                }`}
+                className={`mt-8 leading-8 max-w-xl ${darkMode ? "text-gray-400" : "text-slate-600"
+                  }`}
               >
                 I build modern, responsive and user-friendly websites using
                 HTML, CSS, JavaScript, React.js and Tailwind CSS.
@@ -62,11 +58,7 @@ export default function Home({ darkMode }) {
 
               <div className="flex flex-wrap gap-5 mt-10">
 
-                <a
-                  href="/AHMED.docx"
-                  download
-                  className="btn btn-primary"
-                >
+                <a href="/Ahmed.docx" download>
                   Download CV
                 </a>
 
@@ -113,9 +105,8 @@ export default function Home({ darkMode }) {
 
             <a
               href="#about"
-              className={`animate-bounce text-4xl ${
-                darkMode ? "text-white" : "text-slate-900"
-              }`}
+              className={`animate-bounce text-4xl ${darkMode ? "text-white" : "text-slate-900"
+                }`}
             >
               ↓
             </a>
