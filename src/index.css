@@ -2,7 +2,284 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+   GOOGLE FONT
+*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-section {
-  scroll-margin-top: 90px;
+
+   /* ROOT VARIABLES */
+  
+
+:root{
+
+  /* MAIN THEME */
+  --primary:#1d4ed8;
+  --primary-hover:#000e3d;
+
+  /* BACKGROUND */
+  --dark-bg:#050816;
+  --light-bg:#ffffff;
+
+  /* CARD */
+  --card-dark:#111827;
+  --card-light:#f8fafc;
+
+  /* TEXT */
+  --text-dark:#f5f5f5;
+  --text-light:#ffffff;
+
+  /* PARAGRAPH */
+  --para-dark:#94a3b8;
+  --para-light:#475569;
+
+  /* BORDER */
+  --border-dark:#1f2937;
+  --border-light:#dbe4ee;
+
+  /* SHADOW */
+  --shadow:
+  0 10px 30px rgba(0,0,0,.18);
+
+  /* RADIUS */
+  --radius:18px;
+
+  /* TRANSITION */
+  --transition:.35s ease;
+
+}
+
+
+   /* RESET */
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  font-family:"Poppins",sans-serif;
+  overflow-x:hidden;
+  transition:var(--transition);
+
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark{
+
+  background:var(--dark-bg);
+  color:var(--text-light);
+
+}
+
+/* ==========================
+   LIGHT MODE
+========================== */
+
+body.light{
+
+  background:var(--light-bg);
+  color:var(--text-dark);
+
+}
+
+/* ==========================
+   SCROLL
+========================== */
+
+section{
+
+  scroll-margin-top:90px;
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+  width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+  background:#0f172a;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+  background:var(--primary);
+  border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+  background:var(--primary-hover);
+
+}
+
+/* ==========================
+   COMMON CLASSES
+========================== */
+
+.heading{
+
+  font-size:48px;
+  font-weight:700;
+
+}
+
+.subHeading{
+
+  font-size:20px;
+  font-weight:500;
+
+}
+
+.para{
+
+  line-height:1.9;
+
+}
+
+.card{
+
+  border-radius:var(--radius);
+  transition:var(--transition);
+  box-shadow:var(--shadow);
+
+}
+
+.card:hover{
+
+  transform:translateY(-8px);
+
+}
+
+.btn{
+
+  padding:14px 34px;
+  border-radius:12px;
+  transition:var(--transition);
+  font-weight:600;
+
+}
+
+.btn-primary{
+
+  background:var(--primary);
+  color:white;
+
+}
+
+.btn-primary:hover{
+
+  background:var(--primary-hover);
+
+}
+
+.btn-outline{
+
+  border:2px solid var(--primary);
+  color:var(--primary);
+
+}
+
+.btn-outline:hover{
+
+  background:var(--primary);
+  color:white;
+
+}
+
+/* ==========================
+   IMAGE
+========================== */
+
+.profile{
+
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+
+}
+
+/* ==========================
+   GLASS
+========================== */
+
+.glass{
+
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+.fade{
+
+  transition:.5s;
+
+}
+
+.fade:hover{
+
+  transform:scale(1.02);
+
+}
+
+/* ==========================
+   SELECTION
+========================== */
+
+::selection{
+
+  background:var(--primary);
+  color:white;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.heading{
+
+font-size:34px;
+
+}
+
+.subHeading{
+
+font-size:18px;
+
+}
+
+.btn{
+
+padding:12px 24px;
+
+}
+
 }

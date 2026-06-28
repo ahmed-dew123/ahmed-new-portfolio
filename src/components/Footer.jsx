@@ -1,200 +1,172 @@
-export default function Footer() {
+export default function Footer({ darkMode }) {
   return (
-    <footer className="bg-black text-gray-300 mt-20">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer
+      id="contact"
+      className={`transition-all duration-500 ${darkMode
+          ? "bg-[#050816] text-white border-t border-gray-800"
+          : "bg-gray-50 text-slate-900 border-t border-gray-200"
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 lg:px-16 py-20">
 
-        {/* BRAND */}
-        <div>
-          <h2 className="text-2xl font-bold text-white mb-4">
-            Royal Jewelry
-          </h2>
-          <p className="text-sm text-gray-400 leading-relaxed">
-            Luxury handcrafted jewelry designed for elegance, beauty
-            and timeless moments. Made with love & precision.
-          </p>
+        <div className="grid lg:grid-cols-3 gap-12">
+
+          {/* LEFT */}
+          <div>
+
+            <h2 className="text-3xl font-bold mb-5">
+              Ahmed{" "}
+              <span style={{ color: "var(--primary)" }}>
+                Kashif
+              </span>
+            </h2>
+
+            <p
+              className={`leading-8 ${darkMode ? "text-gray-400" : "text-slate-600"
+                }`}
+            >
+              Frontend Developer passionate about creating modern,
+              responsive and beautiful websites using React.js,
+              Tailwind CSS, JavaScript, HTML and CSS.
+            </p>
+
+          </div>
+
+          {/* CONTACT */}
+          <div>
+
+            <h3
+              className="text-2xl font-bold mb-6"
+              style={{ color: "var(--primary)" }}
+            >
+              Contact
+            </h3>
+
+            <div className="space-y-4">
+
+              <p>📧 mrahmedkashif78@gmail.com</p>
+
+              <p>📱 +92 348 2865623</p>
+
+              <p>📍 Pakistan,punjab,lahore</p>
+
+            </div>
+
+          </div>
+
+          {/* QUICK LINKS */}
+          <div>
+
+            <h3
+              className="text-2xl font-bold mb-6"
+              style={{ color: "var(--primary)" }}
+            >
+              Quick Links
+            </h3>
+
+            <ul className="space-y-4">
+
+              <li>
+                <a href="#home" className="hover:text-[var(--primary)] transition">
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a href="#about" className="hover:text-[var(--primary)] transition">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="#skills" className="hover:text-[var(--primary)] transition">
+                  Skills
+                </a>
+              </li>
+
+              <li>
+                <a href="#services" className="hover:text-[var(--primary)] transition">
+                  Services
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>        {/* SOCIAL LINKS */}
+        <div className="flex justify-center gap-5 mt-14">
+
+          <a
+            href="https://github.com/ahmed-dew123"
+            target="_blank"
+            rel="noreferrer"
+            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+            style={{
+              backgroundColor: "var(--primary)",
+              color: "white",
+            }}
+          >
+            💻
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/ahmed-kashif-6665992b2?"
+            target="_blank"
+            rel="noreferrer"
+            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+
+            style={{
+              backgroundColor: "var(--primary)",
+              color: "white",
+
+            }}
+
+          >
+
+            💼
+          </a>
+
+          <a
+            href="mailto:youremail@gmail.com"
+            className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
+            style={{
+              backgroundColor: "var(--primary)",
+              color: "white",
+            }}
+          >
+            ✉️
+          </a>
+
         </div>
 
-        {/* LINKS */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Quick Links
-          </h3>
-          <ul className="space-y-2 text-sm">
-            <li>Home</li>
-            <li>Collection</li>
-            <li>Gallery</li>
-            <li>Occasions</li>
-            <li>Services</li>
-            <li>Contact</li>
-          </ul>
+        {/* COPYRIGHT */}
+        <div
+          className={`border-t mt-12 pt-6 text-center ${darkMode
+              ? "border-gray-700 text-gray-400"
+              : "border-gray-300 text-slate-600"
+            }`}
+        >
+          © {new Date().getFullYear()} Ahmed Kashif. All Rights Reserved.
         </div>
 
-        {/* TAGLINE */}
-        <div>
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Our Promise
-          </h3>
-          <p className="text-sm text-gray-400 leading-relaxed">
-            Premium quality materials, elegant designs and
-            unforgettable craftsmanship for every special occasion.
-          </p>
+        {/* BACK TO TOP */}
+        <div className="flex justify-center mt-8">
+
+          <a
+            href="#home"
+            className="w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
+            style={{
+              backgroundColor: "var(--primary)",
+              color: "white",
+            }}
+          >
+            ↑
+          </a>
+
         </div>
 
-      </div>
-
-      {/* BOTTOM BAR */}
-      <div className="border-t border-gray-800 py-4 text-center text-sm text-gray-500">
-        © 2026 Royal Jewelry. All rights reserved.
       </div>
     </footer>
   );
 }
-
-
-
-// import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-// function Footer() {
-//   return (
-//     <footer className="bg-black text-gray-400 py-10">
-//       <div className="max-w-7xl mx-auto px-4 text-center">
-
-//         {/* Divider */}
-//         <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-6" />
-
-//         {/* Social Icons */}
-//         <div className="flex justify-center gap-6 mb-4">
-          
-//           {/* GitHub */}
-//           <a
-//             href="https://github.com/nimrakashif337-dev"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-gray-400 hover:text-white transition transform hover:scale-110"
-//           >
-//             <FaGithub size={22} />
-//           </a>
-
-//           {/* LinkedIn */}
-//           <a
-//             href="https://www.linkedin.com"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-gray-400 hover:text-white transition transform hover:scale-110"
-//           >
-//             <FaLinkedin size={22} />
-//           </a>
-
-//         </div>
-
-//         {/* Copyright */}
-//         <p className="text-sm">
-//           © {new Date().getFullYear()} Nimra Kashif. All rights reserved.
-//         </p>
-
-//         <p className="text-xs mt-1 text-gray-500">
-//           Built with React & Tailwind CSS
-//         </p>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
-
-
-
-
-
-
-
-
-
-// import { FaGithub, FaLinkedinIn, FaHeart } from "react-icons/fa";
-
-
-// function Footer() {
-//   return (
-
-    
-
-//     <footer className="bg-[#0b0b0b] border-t border-purple-500/20 py-10 mt-20">
-//       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-
-//         {/* Left Text */}
-//         <div>
-//           <p className="text-gray-400 text-sm">
-//             © {new Date().getFullYear()} MyPortfolio. All rights reserved.
-//           </p>
-
-//           <p className="mt-2 text-gray-500 text-xs flex items-center justify-center md:justify-start gap-1">
-//             Designed with <FaHeart className="text-purple-500" /> using React & Tailwind CSS
-//           </p>
-
-//           <p className="mt-1 text-gray-500 text-xs">
-//             nimrakashif337@gmail.com
-//           </p>
-//         </div>
-
-//         {/* Social Icons */}
-//         <div className="flex gap-5 text-xl">
-//           <a
-//             href="https://github.com/nimrakashif337-dev"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-gray-400 hover:text-purple-500 transition"
-//           >
-//             <FaGithub />
-//           </a>
-
-//           <a
-//             href="https://www.linkedin.com/in/nimrakashif337-dev/"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="text-gray-400 hover:text-purple-500 transition"
-//           >
-//             <FaLinkedinIn />
-//           </a>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function Footer() {
-//   return (
-//     <footer className="bg-purple-900 text-gray-300 py-6">
-//       <div className="max-w-7xl mx-auto px-4 text-center">
-//         <p className="text-sm">
-//           © {new Date().getFullYear()} MyPortfolio. All rights reserved🖇️.
-//         </p>
-//         <p className="mt-1 text-white text-xs">
-//           {/* Designed with ❤️ using React & Tailwind CSS */}
-//           @nimrakashif337@gmail.com 📞
-//         </p>
-//       </div>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
