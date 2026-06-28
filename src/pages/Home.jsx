@@ -58,7 +58,7 @@ export default function Home({ darkMode }) {
 
               <div className="flex flex-wrap gap-5 mt-10">
 
-                <a href="/Ahmed.docx" download>
+                <a href="/AHMED.docx" download>
                   Download CV
                 </a>
 
