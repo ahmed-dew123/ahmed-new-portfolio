@@ -1,14 +1,29 @@
+import { motion } from "framer-motion";
+
 export default function About({ darkMode }) {
+  const stats = [
+    { value: "1+", label: "Years Learning" },
+    { value: "10+", label: "Technologies" },
+    { value: "20+", label: "Projects Completed" },
+    { value: "100%", label: "Passion & Dedication" },
+  ];
+
   return (
     <section
-      className={`py-24 transition-all duration-500 ${
+      className={`py-28 transition-all duration-500 ${
         darkMode ? "bg-[#050816] text-white" : "bg-white text-slate-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
 
         {/* HEADING */}
-        <div className="text-center mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
 
           <p
             className="uppercase tracking-[5px] font-medium mb-3"
@@ -30,13 +45,18 @@ export default function About({ darkMode }) {
             responsive and user-friendly websites with clean code and beautiful UI.
           </p>
 
-        </div>
+        </motion.div>
 
         {/* CONTENT */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+          >
 
             <h2 className="text-4xl font-bold mb-6">
               Who I Am
@@ -61,90 +81,36 @@ export default function About({ darkMode }) {
               and creating websites that are fast, clean and user-friendly.
             </p>
 
-          </div>
+          </motion.div>
 
           {/* RIGHT */}
           <div className="grid grid-cols-2 gap-6">
 
-            {/* CARD 1 */}
-            <div
-              className={`rounded-2xl p-8 border hover:-translate-y-2 transition-all duration-300 ${
-                darkMode
-                  ? "bg-[#0f172a] border-gray-700"
-                  : "bg-slate-50 border-gray-200"
-              }`}
-            >
-              <h3
-                className="text-3xl font-bold mb-2"
-                style={{ color: "var(--primary)" }}
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`rounded-2xl p-8 border hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 ${
+                  darkMode
+                    ? "bg-[#0f172a] border-gray-700"
+                    : "bg-slate-50 border-gray-200"
+                }`}
               >
-                1+
-              </h3>
+                <h3
+                  className="text-3xl font-bold mb-2"
+                  style={{ color: "var(--primary)" }}
+                >
+                  {stat.value}
+                </h3>
 
-              <p className={darkMode ? "text-gray-400" : "text-slate-600"}>
-                Years Learning
-              </p>
-            </div>
-
-            {/* CARD 2 */}
-            <div
-              className={`rounded-2xl p-8 border hover:-translate-y-2 transition-all duration-300 ${
-                darkMode
-                  ? "bg-[#0f172a] border-gray-700"
-                  : "bg-slate-50 border-gray-200"
-              }`}
-            >
-              <h3
-                className="text-3xl font-bold mb-2"
-                style={{ color: "var(--primary)" }}
-              >
-                10+
-              </h3>
-
-              <p className={darkMode ? "text-gray-400" : "text-slate-600"}>
-                Technologies
-              </p>
-            </div>
-
-            {/* CARD 3 */}
-            <div
-              className={`rounded-2xl p-8 border hover:-translate-y-2 transition-all duration-300 ${
-                darkMode
-                  ? "bg-[#0f172a] border-gray-700"
-                  : "bg-slate-50 border-gray-200"
-              }`}
-            >
-              <h3
-                className="text-3xl font-bold mb-2"
-                style={{ color: "var(--primary)" }}
-              >
-                20+
-              </h3>
-
-              <p className={darkMode ? "text-gray-400" : "text-slate-600"}>
-                Projects Completed
-              </p>
-            </div>
-
-            {/* CARD 4 */}
-            <div
-              className={`rounded-2xl p-8 border hover:-translate-y-2 transition-all duration-300 ${
-                darkMode
-                  ? "bg-[#0f172a] border-gray-700"
-                  : "bg-slate-50 border-gray-200"
-              }`}
-            >
-              <h3
-                className="text-3xl font-bold mb-2"
-                style={{ color: "var(--primary)" }}
-              >
-                100%
-              </h3>
-
-              <p className={darkMode ? "text-gray-400" : "text-slate-600"}>
-                Passion & Dedication
-              </p>
-            </div>
+                <p className={darkMode ? "text-gray-400" : "text-slate-600"}>
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
 
           </div>
 

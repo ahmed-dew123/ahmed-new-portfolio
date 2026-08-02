@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
+/*
    GOOGLE FONT
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-
-   /* ROOT VARIABLES */
-  
+/* ==========================
+   ROOT VARIABLES
+========================== */
 
 :root{
 
@@ -38,8 +38,10 @@
   --border-light:#dbe4ee;
 
   /* SHADOW */
-  --shadow:
-  0 10px 30px rgba(0,0,0,.18);
+  --shadow:0 10px 30px rgba(0,0,0,.18);
+
+  --shadow-blue:
+  0 0 20px rgba(59,105,212,.35);
 
   /* RADIUS */
   --radius:18px;
@@ -49,9 +51,9 @@
 
 }
 
-
-   /* RESET */
-
+/* ==========================
+   RESET
+========================== */
 
 *{
   margin:0;
@@ -60,17 +62,13 @@
 }
 
 html{
-
   scroll-behavior:smooth;
-
 }
 
 body{
-
   font-family:"Poppins",sans-serif;
   overflow-x:hidden;
   transition:var(--transition);
-
 }
 
 /* ==========================
@@ -78,10 +76,8 @@ body{
 ========================== */
 
 body.dark{
-
   background:var(--dark-bg);
   color:var(--text-light);
-
 }
 
 /* ==========================
@@ -89,10 +85,8 @@ body.dark{
 ========================== */
 
 body.light{
-
   background:var(--light-bg);
   color:var(--text-dark);
-
 }
 
 /* ==========================
@@ -100,9 +94,7 @@ body.light{
 ========================== */
 
 section{
-
   scroll-margin-top:90px;
-
 }
 
 /* ==========================
@@ -110,28 +102,20 @@ section{
 ========================== */
 
 ::-webkit-scrollbar{
-
   width:10px;
-
 }
 
 ::-webkit-scrollbar-track{
-
   background:#0f172a;
-
 }
 
 ::-webkit-scrollbar-thumb{
-
   background:var(--primary);
   border-radius:20px;
-
 }
 
 ::-webkit-scrollbar-thumb:hover{
-
   background:var(--primary-hover);
-
 }
 
 /* ==========================
@@ -139,112 +123,197 @@ section{
 ========================== */
 
 .heading{
-
   font-size:48px;
   font-weight:700;
-
 }
 
 .subHeading{
-
   font-size:20px;
   font-weight:500;
-
 }
 
 .para{
-
   line-height:1.9;
-
 }
 
 .card{
-
   border-radius:var(--radius);
   transition:var(--transition);
   box-shadow:var(--shadow);
-
+  overflow:hidden;
 }
 
 .card:hover{
-
-  transform:translateY(-8px);
-
+  transform:translateY(-10px);
+  box-shadow:0 20px 45px rgba(0,0,0,.25);
 }
 
 .btn{
-
   padding:14px 34px;
   border-radius:12px;
   transition:var(--transition);
   font-weight:600;
+  position:relative;
+  overflow:hidden;
+}
 
+.btn::before{
+  content:"";
+  position:absolute;
+  left:-120%;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,.15);
+  transform:skewX(-20deg);
+  transition:.6s;
+}
+
+.btn:hover::before{
+  left:120%;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
 }
 
 .btn-primary{
-
   background:var(--primary);
   color:white;
-
 }
 
 .btn-primary:hover{
-
   background:var(--primary-hover);
-
 }
 
 .btn-outline{
-
   border:2px solid var(--primary);
   color:var(--primary);
-
 }
 
 .btn-outline:hover{
-
   background:var(--primary);
   color:white;
-
 }
 
 /* ==========================
-   IMAGE
-========================== */
-
-.profile{
-
-  border-radius:50%;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-
-}
-
-/* ==========================
-   GLASS
+   GLASS NAVBAR
 ========================== */
 
 .glass{
-
-  backdrop-filter:blur(15px);
-  -webkit-backdrop-filter:blur(15px);
-
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
 }
 
 /* ==========================
-   ANIMATION
+   PREMIUM EFFECTS
 ========================== */
 
 .fade{
-
   transition:.5s;
-
 }
 
 .fade:hover{
-
   transform:scale(1.02);
+}
 
+.hover-lift{
+  transition:.4s;
+}
+
+.hover-lift:hover{
+  transform:translateY(-10px);
+}
+
+.hover-glow:hover{
+  box-shadow:0 0 35px rgba(59,105,212,.45);
+}
+
+.text-gradient{
+  background:linear-gradient(90deg,var(--primary),#69a2ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ==========================
+   SECTION ANIMATION
+========================== */
+
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:.8s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ==========================
+   ICON ANIMATION
+========================== */
+
+.icon{
+  transition:.35s;
+}
+
+.icon:hover{
+  transform:rotate(10deg) scale(1.15);
+  color:var(--primary);
+}
+
+/* ==========================
+   SOCIAL BUTTON
+========================== */
+
+.social-btn{
+  transition:.35s;
+}
+
+.social-btn:hover{
+  transform:translateY(-8px) scale(1.1);
+  box-shadow:0 0 30px rgba(59,105,212,.45);
+}
+
+/* ==========================
+   FLOATING ANIMATION
+========================== */
+
+@keyframes float{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-16px);
+  }
+}
+
+.float-anim{
+  animation:float 4s ease-in-out infinite;
+}
+
+.scroll-down{
+  animation:float 2s infinite;
+}
+
+/* ==========================
+   GLOW PULSE (profile ring)
+========================== */
+
+@keyframes glowPulse{
+  0%,100%{
+    opacity:.25;
+    transform:scale(1);
+  }
+  50%{
+    opacity:.45;
+    transform:scale(1.08);
+  }
+}
+
+.glow-pulse{
+  animation:glowPulse 4s ease-in-out infinite;
 }
 
 /* ==========================
@@ -252,34 +321,69 @@ section{
 ========================== */
 
 ::selection{
-
   background:var(--primary);
-  color:white;
-
+  color:#fff;
 }
 
 /* ==========================
    MOBILE
 ========================== */
 
+@media(max-width:992px){
+
+.heading{
+  font-size:40px;
+}
+
+.container{
+  padding-inline:25px;
+}
+
+}
+
 @media(max-width:768px){
 
 .heading{
-
-font-size:34px;
-
+  font-size:34px;
 }
 
 .subHeading{
-
-font-size:18px;
-
+  font-size:18px;
 }
 
 .btn{
+  padding:12px 24px;
+}
 
-padding:12px 24px;
+.profile{
+  width:280px;
+  height:280px;
+}
 
+.card{
+  padding:24px;
+}
+
+}
+
+@media(max-width:576px){
+
+.heading{
+  font-size:30px;
+}
+
+.btn{
+  width:100%;
+  text-align:center;
+}
+
+.profile{
+  width:240px;
+  height:240px;
+}
+
+html{
+  font-size:15px;
 }
 
 }

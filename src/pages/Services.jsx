@@ -1,53 +1,69 @@
+import { motion } from "framer-motion";
+import {
+  Palette,
+  Code2,
+  Smartphone,
+  Sparkles,
+  Wrench,
+  Zap,
+} from "lucide-react";
+
 export default function Services({ darkMode }) {
   const services = [
     {
       title: "Web Design",
       description:
         "Modern, clean and responsive website designs for all devices.",
-      icon: "🎨",
+      icon: Palette,
     },
     {
       title: "Frontend Development",
       description:
         "Professional websites using HTML, CSS, JavaScript, React and Tailwind CSS.",
-      icon: "💻",
+      icon: Code2,
     },
     {
       title: "Responsive Design",
       description:
         "Perfect layouts for Desktop, Tablet and Mobile devices.",
-      icon: "📱",
+      icon: Smartphone,
     },
     {
       title: "UI / UX Design",
       description:
         "Beautiful and user-friendly interfaces for better experience.",
-      icon: "✨",
+      icon: Sparkles,
     },
     {
       title: "Website Maintenance",
       description:
         "Updating, improving and fixing websites for better performance.",
-      icon: "🛠️",
+      icon: Wrench,
     },
     {
       title: "Performance Optimization",
       description:
         "Fast loading speed and optimized websites for SEO.",
-      icon: "⚡",
+      icon: Zap,
     },
   ];
 
   return (
     <section
-      className={`py-4 transition-all duration-500 ${
+      className={`py-28 transition-all duration-500 ${
         darkMode ? "bg-[#050816] text-white" : "bg-white text-slate-900"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
 
         {/* HEADING */}
-        <div className="text-center mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
+        >
 
           <p
             className="uppercase tracking-[5px] font-medium mb-3"
@@ -69,59 +85,56 @@ export default function Services({ darkMode }) {
             modern, responsive and high-quality websites.
           </p>
 
-        </div>
+        </motion.div>
 
         {/* SERVICES GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                darkMode
-                  ? "bg-[#0f172a] border-gray-700"
-                  : "bg-slate-50 border-gray-200"
-              }`}
-            >
-              {/* ICON */}
-              <div
-                className="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-6"
-                style={{
-                  backgroundColor: "var(--primary)",
-                  color: "white",
-                }}
-              >
-                {service.icon}
-              </div>
-
-              {/* TITLE */}
-              <h2
-                className="text-2xl font-bold mb-4"
-                style={{ color: "var(--primary)" }}
-              >
-                {service.title}
-              </h2>
-
-              {/* DESCRIPTION */}
-              <p
-                className={`leading-7 mb-8 ${
-                  darkMode ? "text-gray-400" : "text-slate-600"
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className={`rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                  darkMode
+                    ? "bg-[#0f172a] border-gray-700"
+                    : "bg-slate-50 border-gray-200"
                 }`}
               >
-                {service.description}
-              </p>
+                {/* ICON */}
+                <div
+                  className="icon w-16 h-16 rounded-full flex items-center justify-center mb-6"
+                  style={{
+                    backgroundColor: "var(--primary)",
+                    color: "white",
+                  }}
+                >
+                  <Icon size={28} />
+                </div>
 
-              {/* BUTTON */}
-              {/* <button
-                className="px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
-                style={{
-                  backgroundColor: "var(--primary)",
-                  color: "white",
-                }}
-              >
-                Learn More
-              </button> */}
+                {/* TITLE */}
+                <h2
+                  className="text-2xl font-bold mb-4"
+                  style={{ color: "var(--primary)" }}
+                >
+                  {service.title}
+                </h2>
 
-            </div>
-          ))}
+                {/* DESCRIPTION */}
+                <p
+                  className={`leading-7 mb-8 ${
+                    darkMode ? "text-gray-400" : "text-slate-600"
+                  }`}
+                >
+                  {service.description}
+                </p>
+
+              </motion.div>
+            );
+          })}
 
         </div>
 

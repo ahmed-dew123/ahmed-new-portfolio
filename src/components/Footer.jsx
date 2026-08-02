@@ -1,4 +1,28 @@
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+
 export default function Footer({ darkMode }) {
+  const socials = [
+    {
+      href: "https://github.com/ahmed-dew123",
+      label: "GitHub",
+      icon: Github,
+      external: true,
+    },
+    {
+      href: "https://www.linkedin.com/in/ahmed-kashif-6665992b2",
+      label: "LinkedIn",
+      icon: Linkedin,
+      external: true,
+    },
+    {
+      href: "mailto:mrahmedkashif78@gmail.com",
+      label: "Email",
+      icon: Mail,
+      external: false,
+    },
+  ];
+
   return (
     <footer
       id="contact"
@@ -9,7 +33,13 @@ export default function Footer({ darkMode }) {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-16 py-20">
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
+          className="grid lg:grid-cols-3 gap-12"
+        >
 
           {/* LEFT */}
           <div>
@@ -94,56 +124,30 @@ export default function Footer({ darkMode }) {
 
           </div>
 
-        </div>        {/* SOCIAL LINKS */}
+        </motion.div>
+
+        {/* SOCIAL LINKS */}
         <div className="flex justify-center gap-8 mt-14">
 
-  <div className="flex flex-col items-center">
-    <a
-      href="https://github.com/ahmed-dew123"
-      target="_blank"
-      rel="noreferrer"
-      className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
-      style={{
-        backgroundColor: "var(--primary)",
-        color: "white",
-      }}
-    >
-      💻
-    </a>
-    <span className="mt-2 text-sm">GitHub</span>
-  </div>
+          {socials.map(({ href, label, icon: Icon, external }) => (
+            <div key={label} className="flex flex-col items-center">
+              <a
+                href={href}
+                {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="social-btn w-12 h-12 rounded-full flex items-center justify-center"
+                style={{
+                  backgroundColor: "var(--primary)",
+                  color: "white",
+                }}
+              >
+                <Icon size={20} />
+              </a>
+              <span className="mt-2 text-sm">{label}</span>
+            </div>
+          ))}
 
-  <div className="flex flex-col items-center">
-    <a
-      href="https://www.linkedin.com/in/ahmed-kashif-6665992b2"
-      target="_blank"
-      rel="noreferrer"
-      className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
-      style={{
-        backgroundColor: "var(--primary)",
-        color: "white",
-      }}
-    >
-      💼
-    </a>
-    <span className="mt-2 text-sm">LinkedIn</span>
-  </div>
+        </div>
 
-  <div className="flex flex-col items-center">
-  <a
-    href="mailto:mrahmedkashif78@gmail.com"
-    className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-all duration-300 hover:scale-110"
-    style={{
-      backgroundColor: "var(--primary)",
-      color: "white",
-    }}
-  >
-    ✉️
-  </a>
-  <span className="mt-2 text-sm">Email</span>
-</div>
-
-</div>
         {/* COPYRIGHT */}
         <div
           className={`border-t mt-12 pt-6 text-center ${darkMode
@@ -159,13 +163,13 @@ export default function Footer({ darkMode }) {
 
           <a
             href="#home"
-            className="w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110"
+            className="social-btn w-12 h-12 rounded-full flex items-center justify-center"
             style={{
               backgroundColor: "var(--primary)",
               color: "white",
             }}
           >
-            ↑
+            <ArrowUp size={20} />
           </a>
 
         </div>
